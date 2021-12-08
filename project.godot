@@ -1,0 +1,78 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Resource",
+"class": "ArrayVariable",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/ArrayVariable.gd"
+}, {
+"base": "Resource",
+"class": "BoolVariable",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/BoolVariable.gd"
+}, {
+"base": "Resource",
+"class": "DictionaryVariable",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/DictionaryVariable.gd"
+}, {
+"base": "JsonIO",
+"class": "ReferenceFormatter",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/ReferenceFormatter.gd"
+}, {
+"base": "Resource",
+"class": "StringArrayVariable",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/StringArrayVariable.gd"
+}, {
+"base": "Resource",
+"class": "StringVariable",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/StringVariable.gd"
+}, {
+"base": "Resource",
+"class": "StringVariableArray",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/StringVariableArray.gd"
+} ]
+_global_script_class_icons={
+"ArrayVariable": "",
+"BoolVariable": "",
+"DictionaryVariable": "",
+"ReferenceFormatter": "",
+"StringArrayVariable": "",
+"StringVariable": "",
+"StringVariableArray": ""
+}
+
+[application]
+
+config/name="FKDocsExporter"
+run/main_scene="res://Main.tscn"
+boot_splash/image="res://addons/FKEditor_DocsExporter/Assets/logo.png"
+boot_splash/fullsize=false
+boot_splash/bg_color=Color( 0.12549, 0.32549, 0.792157, 1 )
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"
