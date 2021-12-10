@@ -128,15 +128,12 @@ _global_script_class_icons={
 
 [application]
 
-config/name=false
+config/name="Demo For FKEditor_DocsExporter"
 run/main_scene="res://Main.tscn"
 boot_splash/image="res://addons/FKEditor_DocsExporter/Assets/logo.png"
 boot_splash/fullsize=false
 boot_splash/bg_color=Color( 0.12549, 0.32549, 0.792157, 1 )
-
-[editor_plugins]
-
-enabled=PoolStringArray( "res://addons/FKEditor_DocsExporter/plugin.cfg" )
+config/icon="res://addons/FKEditor_DocsExporter/Assets/logo.png"
 
 [physics]
 
