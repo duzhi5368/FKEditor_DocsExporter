@@ -19,15 +19,70 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/FKEditor_DocsExporter/Scripts/BoolVariable.gd"
 }, {
+"base": "CheckBox",
+"class": "BoolVariableCheckbox",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/UI/UI_BoolVariableCheckbox.gd"
+}, {
+"base": "Resource",
+"class": "CategoryOptionalData",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/CategoryOptionalData.gd"
+}, {
+"base": "Resource",
+"class": "CategoryOptionalDataDict",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/CategoryOptionalDataDict.gd"
+}, {
+"base": "VBoxContainer",
+"class": "CategoryOptions",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/UI/UI_CategoryOptionsLine.gd"
+}, {
+"base": "Node",
+"class": "Collapsible",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/UI/UI_Collapsible.gd"
+}, {
 "base": "Resource",
 "class": "DictionaryVariable",
 "language": "GDScript",
 "path": "res://addons/FKEditor_DocsExporter/Scripts/DictionaryVariable.gd"
 }, {
+"base": "HBoxContainer",
+"class": "FilePathLineEdit",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/UI/UI_FilePathLineEdit.gd"
+}, {
+"base": "MarkdownDocsExporter",
+"class": "HugoMarkdownDocsExporter",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/HugoMarkdownDocsExporter.gd"
+}, {
+"base": "Reference",
+"class": "JsonIO",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/JsonIO.gd"
+}, {
+"base": "JsonIO",
+"class": "MarkdownDocsExporter",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/MarkdownDocsExporter.gd"
+}, {
+"base": "LineEdit",
+"class": "PathLineEdit",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/UI/UI_PathLineEdit.gd"
+}, {
 "base": "JsonIO",
 "class": "ReferenceFormatter",
 "language": "GDScript",
 "path": "res://addons/FKEditor_DocsExporter/Scripts/ReferenceFormatter.gd"
+}, {
+"base": "TextEdit",
+"class": "ResizableTextEdit",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/UI/UI_ResizableTextEdit.gd"
 }, {
 "base": "Resource",
 "class": "StringArrayVariable",
@@ -43,20 +98,37 @@ _global_script_classes=[ {
 "class": "StringVariableArray",
 "language": "GDScript",
 "path": "res://addons/FKEditor_DocsExporter/Scripts/StringVariableArray.gd"
+}, {
+"base": "LineEdit",
+"class": "StringVariableLineEdit",
+"language": "GDScript",
+"path": "res://addons/FKEditor_DocsExporter/Scripts/UI/UI_StringVariableLineEdit.gd"
 } ]
 _global_script_class_icons={
 "ArrayVariable": "",
 "BoolVariable": "",
+"BoolVariableCheckbox": "",
+"CategoryOptionalData": "",
+"CategoryOptionalDataDict": "",
+"CategoryOptions": "",
+"Collapsible": "",
 "DictionaryVariable": "",
+"FilePathLineEdit": "",
+"HugoMarkdownDocsExporter": "",
+"JsonIO": "",
+"MarkdownDocsExporter": "",
+"PathLineEdit": "",
 "ReferenceFormatter": "",
+"ResizableTextEdit": "",
 "StringArrayVariable": "",
 "StringVariable": "",
-"StringVariableArray": ""
+"StringVariableArray": "",
+"StringVariableLineEdit": ""
 }
 
 [application]
 
-config/name="FKDocsExporter"
+config/name=false
 run/main_scene="res://Main.tscn"
 boot_splash/image="res://addons/FKEditor_DocsExporter/Assets/logo.png"
 boot_splash/fullsize=false
@@ -64,7 +136,7 @@ boot_splash/bg_color=Color( 0.12549, 0.32549, 0.792157, 1 )
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/FKEditor_DocsExporter/plugin.cfg" )
 
 [physics]
 

@@ -1,14 +1,15 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://addons/eh_jogos.docs-exporter/shared_variables/string_hugo_export_path.tres" type="Resource" id=1]
-[ext_resource path="res://addons/eh_jogos.docs-exporter/editor_uis/sections/hugo_section/HugoSection.gd" type="Script" id=2]
-[ext_resource path="res://addons/eh_jogos.docs-exporter/editor_uis/ui_elements/path_line_edit/DirectorySystemPathLineEdit.tscn" type="PackedScene" id=3]
-[ext_resource path="res://addons/eh_jogos.docs-exporter/shared_variables/string_json_export_path.tres" type="Resource" id=4]
-[ext_resource path="res://addons/eh_jogos.docs-exporter/shared_variables/dict_categories_optional_data.tres" type="Resource" id=5]
-[ext_resource path="res://addons/eh_jogos.docs-exporter/shared_variables/dict_category_db.tres" type="Resource" id=7]
-[ext_resource path="res://addons/eh_jogos.docs-exporter/editor_uis/ui_elements/CategoryOptionsLine.tscn" type="PackedScene" id=8]
-[ext_resource path="res://addons/eh_jogos.docs-exporter/editor_uis/ui_elements/Collapsible.gd" type="Script" id=9]
-[ext_resource path="res://addons/eh_jogos.docs-exporter/editor_uis/editor_button_theme.tres" type="Theme" id=12]
+[ext_resource path="res://addons/FKEditor_DocsExporter/Assets/Themes/string_hugo_export_path.tres" type="Resource" id=1]
+[ext_resource path="res://addons/FKEditor_DocsExporter/Scripts/UI/UI_HugoSection.gd" type="Script" id=2]
+[ext_resource path="res://addons/FKEditor_DocsExporter/UI/DirectorySystemPathLineEdit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/FKEditor_DocsExporter/Assets/Themes/string_json_export_path.tres" type="Resource" id=4]
+[ext_resource path="res://addons/FKEditor_DocsExporter/Assets/Themes/dict_categories_optional_data.tres" type="Resource" id=5]
+[ext_resource path="res://addons/FKEditor_DocsExporter/Assets/Fonts/SourceHanSerifSC_Regular.tres" type="DynamicFont" id=6]
+[ext_resource path="res://addons/FKEditor_DocsExporter/Assets/Themes/dict_category_db.tres" type="Resource" id=7]
+[ext_resource path="res://addons/FKEditor_DocsExporter/UI/CategoryOptionsLine.tscn" type="PackedScene" id=8]
+[ext_resource path="res://addons/FKEditor_DocsExporter/Scripts/UI/UI_Collapsible.gd" type="Script" id=9]
+[ext_resource path="res://addons/FKEditor_DocsExporter/Assets/Themes/editor_button_theme.tres" type="Theme" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 10.0
@@ -42,8 +43,9 @@ resources = [ PoolStringArray( "category_db", "category_options_line", "hugo_exp
 
 [node name="SectionTitle" type="Label" parent="."]
 margin_right = 1018.0
-margin_bottom = 14.0
-text = "Export to Hugo Site Parameters"
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 6 )
+text = "导出 Hugo 页面设置"
 
 [node name="SectionTitleBG" type="ColorRect" parent="SectionTitle"]
 show_behind_parent = true
@@ -59,31 +61,34 @@ __meta__ = {
 }
 
 [node name="ExportPathRow" type="HBoxContainer" parent="."]
-margin_top = 22.0
+margin_top = 32.0
 margin_right = 1018.0
-margin_bottom = 44.0
+margin_bottom = 56.0
 
 [node name="Label" type="Label" parent="ExportPathRow"]
 margin_right = 507.0
-margin_bottom = 22.0
+margin_bottom = 24.0
 rect_min_size = Vector2( 0, 22 )
 size_flags_horizontal = 3
-text = "Hugo content export folder path"
+custom_fonts/font = ExtResource( 6 )
+text = "Hugo 内容导出目录路径"
 valign = 1
 
 [node name="DirectorySystemPathLineEdit" parent="ExportPathRow" instance=ExtResource( 3 )]
+margin_bottom = 24.0
 
 [node name="Categories" type="Button" parent="."]
-margin_top = 52.0
+margin_top = 64.0
 margin_right = 1018.0
-margin_bottom = 76.0
+margin_bottom = 98.0
 rect_min_size = Vector2( 250, 0 )
+custom_colors/font_color_hover = Color( 0, 0.811765, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.117647, 0.109804, 0.129412, 1 )
+custom_fonts/font = ExtResource( 6 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
-custom_colors/font_color_hover = Color( 0, 0.811765, 1, 1 )
-custom_colors/font_color_pressed = Color( 0.117647, 0.109804, 0.129412, 1 )
-text = "- Categories Optional Data"
+text = "- 类别 可选数据"
 align = 0
 
 [node name="Collapsible" type="Node" parent="Categories"]
@@ -92,34 +97,36 @@ text_element_path = NodePath("..")
 collapsible_node_path = NodePath("../../CategoriesBlockIdent")
 
 [node name="CategoriesBlockIdent" type="MarginContainer" parent="."]
-margin_top = 84.0
+margin_top = 106.0
 margin_right = 1018.0
-margin_bottom = 84.0
+margin_bottom = 1042.0
 custom_constants/margin_left = 30
 
 [node name="CategoriesList" type="VBoxContainer" parent="CategoriesBlockIdent"]
 margin_left = 30.0
 margin_right = 1018.0
+margin_bottom = 936.0
 
 [node name="BuildCategoryDb" type="Button" parent="."]
 margin_left = 768.0
-margin_top = 92.0
+margin_top = 1050.0
 margin_right = 1018.0
-margin_bottom = 121.0
+margin_bottom = 1089.0
 rect_min_size = Vector2( 250, 0 )
 size_flags_horizontal = 8
 theme = ExtResource( 12 )
-text = "Build Category Db"
+text = "构建 类别 数据库"
 
 [node name="ExportHugoContent" type="Button" parent="."]
 margin_left = 768.0
-margin_top = 129.0
+margin_top = 1097.0
 margin_right = 1018.0
-margin_bottom = 158.0
+margin_bottom = 1136.0
 rect_min_size = Vector2( 250, 0 )
 size_flags_horizontal = 8
 theme = ExtResource( 12 )
-text = "Export Hugo Docs Pages"
+text = "导出 Hugo 页面"
+
 [connection signal="focus_entered" from="." to="." method="_on_HugoSection_focus_entered"]
 [connection signal="pressed" from="BuildCategoryDb" to="." method="_on_BuildCategoryDb_pressed"]
 [connection signal="pressed" from="ExportHugoContent" to="." method="_on_ExportHugoContent_pressed"]

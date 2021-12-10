@@ -1,7 +1,8 @@
 # Created by Freeknight
 # 2021/12/04
-# 说明：
-#-------------------------------------------------
+# 说明：JSON格式导出模块
+# @category: UI元素
+#--------------------------------------------------------------------------------------------------
 tool
 extends VBoxContainer
 ### Member Variables and Dependencies -------------------------------------------------------------
@@ -10,9 +11,7 @@ extends VBoxContainer
 #--- constants ------------------------------------------------------------------------------------
 #--- public variables - order: export > normal var > onready --------------------------------------
 #--- private variables - order: export > normal var > onready -------------------------------------
-
 var _reference_formatter: ReferenceFormatter
-
 var _directories: StringVariableArray = null
 var _filters: StringVariableArray = null
 var _is_recursive: BoolVariable = null
@@ -24,9 +23,7 @@ onready var _json_path_selector = $JsonReferenceRow/JsonPathSelector
 onready var _resource_preloader = $ResourcePreloader
 ### -----------------------------------------------------------------------------------------------
 
-
 ### Built in Engine Methods -----------------------------------------------------------------------
-
 func _ready() -> void:
 	_reference_formatter = ReferenceFormatter.new()
 	
@@ -38,13 +35,10 @@ func _ready() -> void:
 	_directories_column.populate_editor_fields(_directories)
 	_filters_column.populate_editor_fields(_filters)
 	_json_path_selector.set_string_variable(_save_path)
-
 ### -----------------------------------------------------------------------------------------------
-
 
 ### Public Methods --------------------------------------------------------------------------------
 ### -----------------------------------------------------------------------------------------------
-
 
 ### Private Methods -------------------------------------------------------------------------------
 func _on_ExportJson_pressed() -> void:

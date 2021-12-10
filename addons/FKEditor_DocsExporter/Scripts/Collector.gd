@@ -6,17 +6,13 @@
 tool
 extends SceneTree
 #--------------------------------------------------------------------------------------------------
-# Returns a list of file paths found in the directory.
-#
+# 返回工作目录下的文件路径列表
 # **Arguments**
 #
-# - dirpath: path to the directory from which to search files.
-# - patterns: an array of string match patterns, where "*" matches zero or more
-#   arbitrary characters and "?" matches any single character except a period
-#   ("."). You can use it to find files by extensions. To find only GDScript
-#   files, ["*.gd"]
-# - is_recursive: if `true`, walks over subdirectories recursively, returning all
-#   files in the tree.
+# - dirpath: 需要查询的根目录
+# - patterns: 一个字符串匹配数组。其中"*" 表示0至无穷个字符，"?"可表示除'.'外的单个字符
+#   例如，仅查找 GDScript 文件可传入 ["*.gd"]
+# - is_recursive: 是否遍历子目录
 func find_files(
 	dirpath := "", patterns := PoolStringArray(), is_recursive := false, do_skip_hidden := true
 ) -> PoolStringArray:
@@ -68,15 +64,13 @@ func save_text(path := "", content := "") -> void:
 	file.close()
 	print("Saved data to %s" % path)
 # ------------------------------------------------------------------------------
-# Parses a list of GDScript files and returns a list of dictionaries with the
-# code reference data.
-#
-# If `refresh_cache` is true, will refresh Godot's cache and get fresh symbols.
+# 解析文件列表，并返回字符串匹配的数据字典
+# 如果 `refresh_cache` 为 true, 则刷新 godot 缓存.
 func get_reference(files := PoolStringArray(), refresh_cache := false) -> Dictionary:
 	var data := {
 		name = ProjectSettings.get_setting("application/config/name"),
 		description = ProjectSettings.get_setting("application/config/description"),
-		version = ProjectSettings.get_setting("application/config/version"),
+		# version = ProjectSettings.get_setting("application/config/version"),
 		classes = []
 	}
 	var workspace = Engine.get_singleton('GDScriptLanguageProtocol').get_workspace()
@@ -84,11 +78,14 @@ func get_reference(files := PoolStringArray(), refresh_cache := false) -> Dictio
 		if not file.ends_with(".gd"):
 			continue
 		if refresh_cache:
-			workspace.parse_local_script(file)
+			#print("can't support refresh cache.")
+			# workspace.parse_local_script(file)
+			pass
 		var symbols: Dictionary = workspace.generate_script_api(file)
 		data["classes"].append(symbols)
 	return data
-
-# Prints dictionary in json format, with proper identation
+# ------------------------------------------------------------------------------
+# 以JSON格式输出字典，并给与合适的缩进
 func print_pretty_json(reference: Dictionary) -> String:
 	return JSON.print(reference, "  ")
+# ------------------------------------------------------------------------------

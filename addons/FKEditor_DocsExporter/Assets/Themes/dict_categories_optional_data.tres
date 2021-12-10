@@ -1,0 +1,39 @@
+[gd_resource type="Resource" load_steps=8 format=2]
+
+[ext_resource path="res://addons/FKEditor_DocsExporter/Scripts/CategoryOptionalDataDict.gd" type="Script" id=1]
+[ext_resource path="res://addons/FKEditor_DocsExporter/Scripts/CategoryOptionalData.gd" type="Script" id=2]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+weight = 1
+description = "1"
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+weight = 1
+description = "1"
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+weight = 1
+description = "1"
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 2 )
+weight = 1
+description = "1"
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 2 )
+weight = 1
+description = "1"
+
+[resource]
+script = ExtResource( 1 )
+value = {
+"Category Unknown": SubResource( 4 ),
+"UI元素": SubResource( 5 ),
+"基本变量类型": SubResource( 1 ),
+"自定义资源": SubResource( 2 ),
+"辅助类": SubResource( 3 )
+}

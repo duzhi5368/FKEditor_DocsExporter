@@ -1,0 +1,48 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/FKEditor_DocsExporter/Scripts/DictionaryVariable.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+value = {
+"Category Unknown": {
+"children": [  ],
+"description": "1",
+"full_path": "/HugoDocs/category unknown",
+"is_root": true,
+"page_titles": [ "ReferenceFormatter" ],
+"weight": 1
+},
+"UI元素": {
+"children": [  ],
+"description": "1",
+"full_path": "/HugoDocs/ui元素",
+"is_root": true,
+"page_titles": [ "BoolVariableCheckbox", "CategoryOptions", "Collapsible", "FilePathLineEdit", "PathLineEdit", "ResizableTextEdit", "StringVariableLineEdit" ],
+"weight": 1
+},
+"基本变量类型": {
+"children": [  ],
+"description": "1",
+"full_path": "/HugoDocs/基本变量类型",
+"is_root": true,
+"page_titles": [ "ArrayVariable", "BoolVariable", "DictionaryVariable", "StringArrayVariable", "StringVariable", "StringVariableArray" ],
+"weight": 1
+},
+"自定义资源": {
+"children": [  ],
+"description": "1",
+"full_path": "/HugoDocs/自定义资源",
+"is_root": true,
+"page_titles": [ "CategoryOptionalData", "CategoryOptionalDataDict" ],
+"weight": 1
+},
+"辅助类": {
+"children": [  ],
+"description": "1",
+"full_path": "/HugoDocs/辅助类",
+"is_root": true,
+"page_titles": [ "JsonIO" ],
+"weight": 1
+}
+}

@@ -40,21 +40,20 @@ func export_formatted_reference_json(
 		save_path: String
 ) -> void:
 	_build_custom_class_dbs()
-	
+
 	var reference_dict : = _build_reference_dictionary_from_source_code(
 			directories, 
 			patterns, 
 			is_recursive
 	)
-	
-	
+
 	var formatted_reference : Dictionary = {
 			name = reference_dict.name,
 			description = reference_dict.description,
-			version = reference_dict.version,
+			# version = reference_dict.version,
 			classes = []
 	}
-	
+
 	for class_entry in reference_dict.classes:
 		if not class_entry.has("name") or class_entry.name == "":
 			continue
@@ -70,7 +69,7 @@ func export_formatted_reference_json(
 			_handle_metadata(class_entry)
 		
 		formatted_reference.classes.append(class_entry)
-	
+
 	write_dictionary_to_file(formatted_reference, save_path)
 ### -----------------------------------------------------------------------------------------------
 
@@ -98,15 +97,15 @@ func _build_reference_dictionary_from_source_code(
 		patterns: Array, 
 		is_recursive: bool
 ) -> Dictionary:
-	var Collector: SceneTree = \
-			load("./Collector.gd").new()
+	
+	var Collector: SceneTree = load("res://addons/FKEditor_DocsExporter/Scripts/Collector.gd").new()
 	
 	var files := PoolStringArray()
 	for dirpath in directories:
 		files.append_array(Collector.find_files(dirpath, patterns, is_recursive))
 	var reference_dict : Dictionary = Collector.get_reference(files, true)
 	Collector = null
-	
+
 	return reference_dict
 # ------------------------------------------------------------------------------
 func _get_inheritance(p_class: String) -> Array:

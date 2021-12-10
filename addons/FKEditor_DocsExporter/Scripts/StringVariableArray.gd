@@ -39,14 +39,12 @@ func push(element) -> void:
 	value.push_back(string_variable)
 	
 	_save()
-
 # ------------------------------------------------------------------------------
 func erase(element: StringVariable) -> void:
 	if value.has(element):
 		value.erase(element)
 	
 	_save()
-
 # ------------------------------------------------------------------------------
 func get_string_array() -> Array:
 	var array: = []
@@ -76,7 +74,6 @@ func _set_value(p_value) -> void:
 				push(element)
 	
 	_save()
-
 # ------------------------------------------------------------------------------
 func _get_value() -> Array:
 	for element in value:
@@ -85,12 +82,10 @@ func _get_value() -> Array:
 			string_variable.connect("value_updated", self, "_on_array_element_updated")
 	
 	return value
-
 # ------------------------------------------------------------------------------
 func _save() -> void:
 	ResourceSaver.save(resource_path, self)
 	emit_signal("value_updated")
-
 # ------------------------------------------------------------------------------
 func _on_array_element_updated() -> void:
 	ResourceSaver.save(resource_path, self)
