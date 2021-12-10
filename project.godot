@@ -128,7 +128,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Demo For FKEditor_DocsExporter"
+config/name="【编辑器】代码注释导出GithubWiki和Hugo"
 run/main_scene="res://Main.tscn"
 boot_splash/image="res://addons/FKEditor_DocsExporter/Assets/logo.png"
 boot_splash/fullsize=false
