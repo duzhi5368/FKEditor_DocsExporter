@@ -8,7 +8,7 @@ value = {
 "Category Unknown": {
 "children": [  ],
 "description": "1",
-"full_path": "/HugoDocs/category unknown",
+"full_path": "/HUGO/category unknown",
 "is_root": true,
 "page_titles": [ "ReferenceFormatter" ],
 "weight": 1
@@ -16,33 +16,33 @@ value = {
 "UI元素": {
 "children": [  ],
 "description": "1",
-"full_path": "/HugoDocs/ui元素",
+"full_path": "/HUGO/ui元素",
 "is_root": true,
-"page_titles": [ "BoolVariableCheckbox", "CategoryOptions", "Collapsible", "FilePathLineEdit", "PathLineEdit", "ResizableTextEdit", "StringVariableLineEdit" ],
+"page_titles": [ "ResizableTextEdit", "FilePathLineEdit", "PathLineEdit", "BoolVariableCheckbox", "CategoryOptions", "StringVariableLineEdit", "Collapsible" ],
 "weight": 1
 },
 "基本变量类型": {
 "children": [  ],
 "description": "1",
-"full_path": "/HugoDocs/基本变量类型",
+"full_path": "/HUGO/基本变量类型",
 "is_root": true,
-"page_titles": [ "ArrayVariable", "BoolVariable", "DictionaryVariable", "StringArrayVariable", "StringVariable", "StringVariableArray" ],
+"page_titles": [ "StringVariableArray", "HugoMarkdownDocsExporter", "DictionaryVariable", "ArrayVariable", "StringArrayVariable", "StringVariable", "BoolVariable" ],
 "weight": 1
 },
 "自定义资源": {
 "children": [  ],
 "description": "1",
-"full_path": "/HugoDocs/自定义资源",
+"full_path": "/HUGO/自定义资源",
 "is_root": true,
-"page_titles": [ "CategoryOptionalData", "CategoryOptionalDataDict" ],
+"page_titles": [ "CategoryOptionalDataDict", "CategoryOptionalData" ],
 "weight": 1
 },
 "辅助类": {
 "children": [  ],
 "description": "1",
-"full_path": "/HugoDocs/辅助类",
+"full_path": "/HUGO/辅助类",
 "is_root": true,
-"page_titles": [ "JsonIO" ],
+"page_titles": [ "MarkdownDocsExporter", "JsonIO" ],
 "weight": 1
 }
 }

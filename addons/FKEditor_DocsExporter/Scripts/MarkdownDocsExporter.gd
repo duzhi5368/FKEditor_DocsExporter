@@ -1,6 +1,8 @@
-# Main markdown exporter. It exports using github flavor markdown. These .md files can be used
-# anywhere, but the links and the _Sidebar.md are configured to work best with github wiki 
-# format.
+# Created by Freeknight
+# Date: 2022/04/05
+# Desc：MD 格式生成器，其生成的 _Sidebar.md 充分适配 GITHUB WIKI
+# @category: 辅助类
+#--------------------------------------------------------------------------------------------------
 tool
 class_name MarkdownDocsExporter
 extends JsonIO

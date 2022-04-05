@@ -30,9 +30,7 @@ func _init():
 ### -----------------------------------------------------------------------------------------------
 
 ### Public Methods --------------------------------------------------------------------------------
-# Sweepes the folders you set in `directories` looking for files that matches the provided 
-# `patterns`. It can search the folders recursively or not, and resulting json is exported 
-# to save_path.
+# 递归扫描 directories 中和 patterns 匹配的文件，并将生成的 json 导出到 save_path
 func export_formatted_reference_json(
 		directories: Array, 
 		patterns: Array, 

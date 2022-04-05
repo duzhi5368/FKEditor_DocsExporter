@@ -20,10 +20,10 @@ func find_files(
 	var directory := Directory.new()
 
 	if not directory.dir_exists(dirpath):
-		printerr("The directory does not exist: %s" % dirpath)
+		printerr("文件夹不存在 %s" % dirpath)
 		return file_paths
 	if not directory.open(dirpath) == OK:
-		printerr("Could not open the following dirpath: %s" % dirpath)
+		printerr("无法打开指定指定目录，可能权限不足: %s" % dirpath)
 		return file_paths
 
 	directory.list_dir_begin(true, do_skip_hidden)
@@ -47,10 +47,10 @@ func save_text(path := "", content := "") -> void:
 	var dirpath := path.get_base_dir()
 	var basename := path.get_file()
 	if not dirpath:
-		printerr("Couldn't save: the path %s is invalid." % path)
+		printerr("保存失败，文件夹 %s 不存在" % path)
 		return
 	if not basename.is_valid_filename():
-		printerr("Couldn't save: the file name, %s, contains invalid characters." % basename)
+		printerr("保存失败,文件名 %s 包含非法字符" % basename)
 		return
 
 	var directory := Directory.new()

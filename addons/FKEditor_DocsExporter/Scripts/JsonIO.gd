@@ -19,14 +19,14 @@ extends Reference
 ### Public Methods --------------------------------------------------------------------------------
 # 当读取文件失败时，向Godot调试器种添加错误信息
 func push_reading_file_error(error, p_file_path) -> String:
-	var msg: = "Error while reading %s: %s"%[p_file_path, error]
+	var msg: = "加载文件 %s 时出错: %s" % [p_file_path, error]
 	push_error(msg)
 	assert(false)
 	return msg
 # ------------------------------------------------------------------------------
 # 当解析文件失败时，向Godot调试器种添加错误信息
 func push_parsing_file_error(error, p_file_path) -> String:
-	var msg: = "Error while parsing %s's content: %s"%[p_file_path, error]
+	var msg: = "解析文件 %s 时出错: %s" % [p_file_path, error]
 	push_error(msg)
 	assert(false)
 	return msg
@@ -61,7 +61,7 @@ func write_dictionary_to_file(content: Dictionary, p_file_path: String) -> void:
 		return
 	formatted_file.store_string(JSON.print(content, "  "))
 	formatted_file.close()
-	print("File Written to: %s"%[p_file_path])
+	print("保存json格式文件到: %s"%[p_file_path])
 ### -----------------------------------------------------------------------------------------------
 
 ### Private Methods -------------------------------------------------------------------------------

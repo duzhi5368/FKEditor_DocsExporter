@@ -41,7 +41,7 @@ __meta__ = {
 
 [node name="ContentList" type="VBoxContainer" parent="Panel/ScrollContainer"]
 margin_right = 1010.0
-margin_bottom = 770.0
+margin_bottom = 728.0
 size_flags_horizontal = 3
 custom_constants/separation = 25
 __meta__ = {
@@ -60,7 +60,7 @@ margin_bottom = 545.0
 [node name="HugoSection" parent="Panel/ScrollContainer/ContentList" instance=ExtResource( 3 )]
 margin_top = 570.0
 margin_right = 1010.0
-margin_bottom = 770.0
+margin_bottom = 728.0
 
 [node name="Outline" type="Panel" parent="."]
 anchor_right = 1.0

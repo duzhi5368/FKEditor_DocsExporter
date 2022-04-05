@@ -1,23 +1,20 @@
-# Exports md files configured to work with Hugo. It's supposed to work with any theme, but it was
-# only tested with hugo-theme-learn. It's recommended to export the whole reference into a folder
-# inside the "content" folder of your hugo site, but not directly in content, without any 
-# subfolder.
-#
-# In addition to that, if you use @category, a subfolder with it's own _index.md will be created
-# for each category. You can order them and add descriptions to this pages in the Docs Exporter tab
-# in the Project Settings.
+# Created by Freeknight
+# Date: 2022/04/05
+# Desc：导出数据为 hugo 支持的 md 格式文件中，你可可以将这个文件放置到 hugo 的 “content” 文件夹下，尽量不要
+#		有子目录。另外，如果你使用 @category 标签，可以创建一个子目录（并带有自己的 _index.md 文件），你可以
+#		在本插件的配置项中进行 category 的设置
+# @category: 基本变量类型
+#--------------------------------------------------------------------------------------------------
 tool
 class_name HugoMarkdownDocsExporter
 extends MarkdownDocsExporter
 
 ### Member Variables and Dependencies -------------------------------------------------------------
 #--- signals --------------------------------------------------------------------------------------
-
 #--- enums ----------------------------------------------------------------------------------------
-
 #--- constants ------------------------------------------------------------------------------------
 
-# Front matter that will be used to default pages.
+# HUGO默认主页格式
 const HUGO_DEFAULT_FRONT_MATTER = ""\
 		+"---  \n"\
 		+"title: {title}  \n"\
@@ -26,7 +23,7 @@ const HUGO_DEFAULT_FRONT_MATTER = ""\
 		+"weight: 1  \n"\
 		+"---  \n"  
 
-# Front matter that will be used for category pages.
+# HUGO默认category页
 const HUGO_CHAPTER_FRONT_MATTER = ""\
 		+"---  \n"\
 		+"title: {title}  \n"\
@@ -37,9 +34,9 @@ const HUGO_CHAPTER_FRONT_MATTER = ""\
 
 #--- public variables - order: export > normal var > onready --------------------------------------
 
-# Author to be used across the site's front matters.
-var author: String = "eh-jogos"
-# Enables / Disables table of contents in category pages.
+# 作者名
+var author: String = "FreeKnight"
+# 是否开启category页的主体列表项
 var should_create_toc_on_category_pages: = true
 
 #--- private variables - order: export > normal var > onready -------------------------------------
@@ -59,8 +56,7 @@ func _init():
 
 ### Public Methods --------------------------------------------------------------------------------
 
-# Takes in the reference json file path and an export path and generates and exports hugo 
-# formatted .md files.
+# 根据 json 文件生成 hugo 依赖的 md 文件
 func export_hugo_site_pages(reference_json_path: String, export_path: String) -> void:
 	build_category_db(reference_json_path, export_path)
 	
@@ -76,6 +72,7 @@ func export_hugo_site_pages(reference_json_path: String, export_path: String) ->
 		_build_and_save_md(entry, export_path)
 	_build_root_index(export_path)
 	
+	# 生成 category 子页面
 	for category in _category_db.value:
 		var md_filename = "_index.md"
 		var md_file_path =  _get_md_filepath(export_path, md_filename, category.to_lower())
@@ -86,7 +83,7 @@ func export_hugo_site_pages(reference_json_path: String, export_path: String) ->
 
 		_write_documentation_file(md_content, md_file_path)
 	
-	print("Build Hugo page success!")
+	print("生成 Hugo 页面完成!")
 
 ### -----------------------------------------------------------------------------------------------
 
@@ -104,7 +101,7 @@ func _build_and_save_md(docs_entry: Dictionary, export_path: String) -> void:
 	
 	_write_documentation_file(md_content, md_file_path)
 
-
+# ------------------------------------------------------------------------------
 func _build_root_index(export_path: String) -> void:
 	if export_path.ends_with("/"):
 			export_path = export_path.left(export_path.length()-1)
@@ -119,14 +116,14 @@ func _build_root_index(export_path: String) -> void:
 	
 	_write_documentation_file(md_content, root_export_md_path)
 
-
+# ------------------------------------------------------------------------------
 func _get_md_content(docs_entry: Dictionary) -> String:
 	var md_content = _get_hugo_front_matter(docs_entry.name)
 	md_content += ._get_md_content(docs_entry)
 	
 	return md_content
 
-
+# ------------------------------------------------------------------------------
 func _get_hugo_front_matter(title: String, is_category: = false, weight: = 0) -> String:
 	var formated_date = _date
 	if formated_date == "":
@@ -161,7 +158,7 @@ func _get_hugo_front_matter(title: String, is_category: = false, weight: = 0) ->
 	
 	return front_matter
 
-
+# ------------------------------------------------------------------------------
 func _get_toc(starting_category: Dictionary, identation = "") -> String:
 	var content = ""
 	content += _get_link_tree(starting_category, identation)
@@ -178,7 +175,7 @@ func _get_toc(starting_category: Dictionary, identation = "") -> String:
 	
 	return content
 
-
+# ------------------------------------------------------------------------------
 func _get_link_tree(dict : Dictionary, identation: = "") -> String:
 	var link_tree: = ""
 	
@@ -189,14 +186,14 @@ func _get_link_tree(dict : Dictionary, identation: = "") -> String:
 	
 	return link_tree
 
-
+# ------------------------------------------------------------------------------
 func _add_link_to_keyword(text: String, split_index: int, link: String) -> String:
 	var left = text.left(split_index)
 	var right = text.right(split_index)
 	text = "%s({{< ref \"%s\" >}})%s"%[left, link, right]
 	return text
 
-
+# ------------------------------------------------------------------------------
 func _add_link_to_keyword_section(text: String, split_index: int, 
 		link: String, hash_link: String, keyword: String = "") -> String:
 	var left = text.left(split_index)
@@ -208,7 +205,7 @@ func _add_link_to_keyword_section(text: String, split_index: int,
 	text = "%s({{< ref \"%s#%s\" >}})%s"%[left, link, hash_link, right]
 	return text
 
-
+# ------------------------------------------------------------------------------
 func _get_property_details_table(property: Dictionary) -> String:
 	var table = "| | |  \n"
 	table +=    "| - |:-:|  \n"
